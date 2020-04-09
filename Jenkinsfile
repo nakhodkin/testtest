@@ -5,10 +5,10 @@ pipeline {
             args '-u 0:0'
         }
     }
+    environment {
+        NODE_ENV = "production"
+    }
     stages {
-        environment {
-            NODE_ENV = "production"
-        }
         stage('Test environenment') {
             steps {
                 sh 'node --version'
