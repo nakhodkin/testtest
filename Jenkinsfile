@@ -20,12 +20,12 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Run unit tests') {
+        stage('Audit dependencies') {
             steps {
-                sh 'npm ci'
+                sh 'npm audit'
             }
         }
-        stage('Audit dependencies') {
+        stage('Run unit tests') {
             steps {
                 sh 'npm test'
             }
