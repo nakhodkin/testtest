@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls'
+                sh 'cat package.json'
                 sh 'node --version'
                 sh 'npm --version'
             }
@@ -30,7 +31,6 @@ pipeline {
         }
         stage('Run unit tests') {
             steps {
-                sh 'npm install'
                 sh 'npm test'
             }
         }
