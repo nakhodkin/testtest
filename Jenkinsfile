@@ -11,6 +11,8 @@ pipeline {
     stages {
         stage('Test environenment') {
             steps {
+                sh 'pwd'
+                sh 'ls'
                 sh 'node --version'
                 sh 'npm --version'
             }
