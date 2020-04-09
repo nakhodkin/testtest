@@ -1,0 +1,22 @@
+{
+  "name": "jenkins-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakhodkin/testtest.git"
+  },
+  "author": "Artem Nakhodkin <ifeature@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nakhodkin/testtest/issues"
+  },
+  "homepage": "https://github.com/nakhodkin/testtest#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
