@@ -6,6 +6,9 @@ pipeline {
         }
     }
     stages {
+        environment {
+            NODE_ENV = "production"
+        }
         stage('Test environenment') {
             steps {
                 sh 'node --version'
@@ -14,7 +17,22 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh 'npm install'
+                sh 'npm ci'
+            }
+        }
+        stage('Run unit tests') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+        stage('Audit dependencies') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'echo builing...'
             }
         }
     }
