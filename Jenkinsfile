@@ -33,6 +33,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo builing...'
+                sh 'echo $NODE_ENV'
             }
         }
     }
