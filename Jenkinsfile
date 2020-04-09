@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Test environenment') {
             steps {
-                sh 'docker --version'
                 sh 'node --version'
+                sh 'npm --version'
             }
         }
         stage('Install dependencies') {
