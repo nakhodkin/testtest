@@ -20,6 +20,7 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
+                sh 'npm install jest'
                 sh 'npm install'
                 sh 'ls node_modules'
             }
