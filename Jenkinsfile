@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'node:12-stretch' }
+        docker {
+            image 'node:12-stretch'
+            args '-u 0:0'
+        }
     }
     stages {
         stage('Test environenment') {
