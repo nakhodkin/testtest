@@ -11,8 +11,16 @@ node {
   }
   stage("Check env") {
     sh """
-        pwd
-        ls
+        node --version
+        npm --version
+        aws --version
     """
+  }
+  stage("Build") {
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+    customImage.inside {
+        sh 'echo Hello'
+    }
   }
 }
