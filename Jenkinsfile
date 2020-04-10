@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Static checks') {
             steps {
-                sh 'eslint checks...'
+                sh 'echo eslint checks...'
             }
         }
         stage('Run unit tests') {
