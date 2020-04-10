@@ -7,6 +7,9 @@ node {
     }
   }
   stage("Check env") {
-    sh 'Hello world!!'
+    sh """
+        pwd
+        ls
+    """
   }
 }
