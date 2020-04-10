@@ -29,11 +29,10 @@ node {
 
     customImage.withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw" -v ${PWD}:/usr/app') { c ->
         sh 'npm run test:ci'
+        junit 'junit.xml'
     }
 
     sh 'ls'
     sh 'echo -------------------------------'
-
-    junit 'junit.xml'
   }
 }
