@@ -26,7 +26,7 @@ node {
 
     customImage.withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw" -v ${PWD}:/usr/app') { c ->
         sh 'npm run test:ci'
-        docker cp ${c.id}:/usr/app/junit.xml .
+        sh 'docker cp ${c.id}:/usr/app/junit.xml .'
     }
 
     sh 'ls'
