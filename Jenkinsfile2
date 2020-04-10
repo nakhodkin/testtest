@@ -41,7 +41,7 @@ pipeline {
                  }
                  stage('Run unit tests') {
                      steps {
-                         sh 'npm test:ci'
+                         sh 'npm run test:ci'
                      }
                      post {
                          always {
