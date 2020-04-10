@@ -16,6 +16,7 @@ pipeline {
                 sh 'cat package.json'
                 sh 'node --version'
                 sh 'npm --version'
+                sh 'env'
             }
         }
         stage('Install dependencies') {
