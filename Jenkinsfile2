@@ -17,6 +17,7 @@ pipeline {
                 sh 'cat package.json'
                 sh 'node --version'
                 sh 'npm --version'
+                sh 'docker --version'
                 sh 'env'
             }
         }
