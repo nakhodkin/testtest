@@ -33,5 +33,7 @@ node {
 
     sh 'ls'
     sh 'echo -------------------------------'
+
+    junit 'junit.xml'
   }
 }
