@@ -34,11 +34,6 @@ pipeline {
             steps {
                 sh 'eslint checks...'
             }
-            post {
-                always {
-
-                }
-            }
         }
         stage('Run unit tests') {
             steps {
@@ -59,16 +54,6 @@ pipeline {
         }
     }
     post {
-        success {
-          script {
-
-          }
-        }
-        failure {
-          script {
-
-          }
-        }
         always {
             deleteDir()
         }
