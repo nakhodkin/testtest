@@ -21,7 +21,7 @@ pipeline {
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'env'
-                sh "${params.api} > 1.txt"
+                sh "${params.api}" > 1.txt
                 sh "cat 1.txt"
             }
         }
