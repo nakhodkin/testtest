@@ -14,17 +14,14 @@ node {
         node --version
         npm --version
         aws --version
+        docker --version
     """
   }
   stage("Build") {
-    sh 'ls'
-    sh 'echo -----------'
     def customImage = docker.build("my-image:${env.BUILD_ID}")
 
     customImage.inside {
         sh 'echo Hello'
-        sh 'ls'
-        sh 'echo ------------------'
     }
 
     customImage.withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw" -v ${PWD}:/usr/app') { c ->
