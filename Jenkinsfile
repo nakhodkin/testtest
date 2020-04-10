@@ -31,8 +31,7 @@ node {
     sh 'echo -------------------------------'
 
     customImage.withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw" ') { c ->
-        sh 'ls'
-        sh 'asdasdasd'
+        sh 'npm test'
     }
   }
 }
