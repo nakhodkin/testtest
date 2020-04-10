@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="2" lines-covered="2" line-rate="1" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1586502761173" complexity="0" version="0.1">
+<coverage lines-valid="2" lines-covered="2" line-rate="1" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1586513440401" complexity="0" version="0.1">
   <sources>
     <source>/Users/ifeature/IdeaProjects/jenkins-test</source>
   </sources>
