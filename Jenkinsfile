@@ -11,6 +11,8 @@ pipeline {
     stages {
         stage('Test environenment') {
             steps {
+                sh 'aws --version'
+                sh 'aws s3 ls'
                 sh 'pwd'
                 sh 'ls'
                 sh 'cat package.json'
@@ -56,7 +58,6 @@ pipeline {
             steps {
                 script {
                     def dockerfile = 'Dockerfile'
-                    def customImage = docker.build("ecommerce-platform:${env.BUILD_ID}")
                 }
             }
         }
