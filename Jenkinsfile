@@ -27,11 +27,11 @@ node {
         sh 'echo ------------------'
     }
 
+    customImage.withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw" -v ${PWD}:/usr/app') { c ->
+        sh 'npm run test:ci'
+    }
+
     sh 'ls'
     sh 'echo -------------------------------'
-
-    customImage.withRun('-e "MYSQL_ROOT_PASSWORD=my-secret-pw" -v ${PWD}:/usr/app') { c ->
-        sh 'npm test'
-    }
   }
 }
