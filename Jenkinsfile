@@ -25,25 +25,29 @@ pipeline {
                 sh 'ls node_modules'
             }
         }
-        stage('Audit dependencies') {
-            steps {
-                sh 'npm audit'
-            }
-        }
         stage('Static checks') {
-            steps {
-                sh 'echo eslint checks...'
-            }
-        }
-        stage('Run unit tests') {
-            steps {
-                sh 'npm test'
-            }
-            post {
-                always {
-                    junit 'junit.xml'
-                    cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml', conditionalCoverageTargets: '20, 0, 0', lineCoverageTargets: '20, 0, 0', methodCoverageTargets: '20, 0, 0', fileCoverageTargets: '20, 0, 0', autoUpdateHealth: false, autoUpdateStability: false
-                }
+            parallel {
+                 stage('Audit dependencies') {
+                     steps {
+                         sh 'npm audit'
+                     }
+                 }
+                 stage('Code style checks') {
+                     steps {
+                         sh 'echo eslint checks...'
+                     }
+                 }
+                 stage('Run unit tests') {
+                     steps {
+                         sh 'npm test'
+                     }
+                     post {
+                         always {
+                             junit 'junit.xml'
+                             cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml', conditionalCoverageTargets: '20, 0, 0', lineCoverageTargets: '20, 0, 0', methodCoverageTargets: '20, 0, 0', fileCoverageTargets: '20, 0, 0', autoUpdateHealth: false, autoUpdateStability: false
+                         }
+                     }
+                 }
             }
         }
         stage('Build') {
@@ -54,6 +58,16 @@ pipeline {
         }
     }
     post {
+        success {
+            script {
+                sh 'echo SUCCESS'
+            }
+        }
+        failure {
+            script {
+                sh 'echo FAILURE'
+            }
+        }
         always {
             deleteDir()
         }
