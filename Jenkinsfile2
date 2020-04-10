@@ -17,7 +17,6 @@ pipeline {
                 sh 'cat package.json'
                 sh 'node --version'
                 sh 'npm --version'
-                sh 'docker --version'
                 sh 'env'
             }
         }
@@ -54,12 +53,9 @@ pipeline {
             }
         }
         stage('Build') {
-            agent any
+            agent { dockerfile true }
             steps {
-                script {
-                    def dockerfile = 'Dockerfile'
-                    def customImage = docker.build("my-image:${env.BUILD_ID}")
-                }
+                sh 'echo hellollllll'
             }
         }
     }
