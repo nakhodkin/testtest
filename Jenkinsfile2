@@ -6,6 +6,9 @@ pipeline {
             reuseNode true
         }
     }
+    parameters {
+        string(name: 'API_URL', defaultValue: 'http://', description: 'Api url')
+    }
     environment {
         NODE_ENV = "production"
     }
@@ -18,6 +21,8 @@ pipeline {
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'env'
+                sh "params{API_URL} > 1.txt"
+                sh "cat 1.txt"
             }
         }
         stage('Install dependencies') {
