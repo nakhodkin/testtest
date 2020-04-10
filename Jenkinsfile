@@ -30,9 +30,25 @@ pipeline {
                 sh 'npm audit'
             }
         }
+        stage('Static checks') {
+            steps {
+                sh 'eslint checks...'
+            }
+            post {
+                always {
+
+                }
+            }
+        }
         stage('Run unit tests') {
             steps {
                 sh 'npm test'
+            }
+            post {
+                always {
+                    junit 'junit.xml'
+                    cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml', conditionalCoverageTargets: '20, 0, 0', lineCoverageTargets: '20, 0, 0', methodCoverageTargets: '20, 0, 0', fileCoverageTargets: '20, 0, 0', autoUpdateHealth: false, autoUpdateStability: false
+                }
             }
         }
         stage('Build') {
@@ -43,8 +59,18 @@ pipeline {
         }
     }
     post {
+        success {
+          script {
+
+          }
+        }
+        failure {
+          script {
+
+          }
+        }
         always {
-            deleteDir() /* clean up our workspace */
+            deleteDir()
         }
     }
 }
