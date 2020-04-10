@@ -52,8 +52,10 @@ pipeline {
             }
         }
         stage('Build') {
-            script {
-                def dockerfile = 'Dockerfile'
+            steps {
+                script {
+                    def dockerfile = 'Dockerfile'
+                }
             }
         }
     }
