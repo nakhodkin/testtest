@@ -53,13 +53,8 @@ pipeline {
             }
         }
         stage('Build') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                }
-            }
             steps {
-                sh 'echo hellollllll'
+                sh 'npm run build'
             }
         }
     }
