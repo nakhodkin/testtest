@@ -9,10 +9,15 @@ pipeline {
         NODE_ENV = "production"
     }
     stages {
+        stage('Test aws') {
+            agent any
+            steps {
+                sh '/usr/local/bin/aws --version'
+                sh '/usr/local/bin/aws s3 ls'
+            }
+        }
         stage('Test environenment') {
             steps {
-                sh 'aws --version'
-                sh 'aws s3 ls'
                 sh 'pwd'
                 sh 'ls'
                 sh 'cat package.json'
