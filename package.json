@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/nakhodkin/testtest#readme",
   "dependencies": {
-    "axios": "^0.19.2"
-  },
-  "devDependencies": {
+    "axios": "^0.19.2",
     "jest": "^25.3.0"
   }
 }
