@@ -55,6 +55,7 @@ pipeline {
             steps {
                 script {
                     def dockerfile = 'Dockerfile'
+                    def customImage = docker.build("ecommerce-platform:${env.BUILD_ID}")
                 }
             }
         }
