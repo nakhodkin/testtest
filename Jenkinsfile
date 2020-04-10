@@ -6,4 +6,7 @@ node {
         AWS("--region=eu-west-1 s3 ls")
     }
   }
+  stage("Check env") {
+    sh 'Hello world!!'
+  }
 }
