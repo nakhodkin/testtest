@@ -9,6 +9,6 @@ COPY package-lock.json .
 
 RUN npm install
 
-# COPY . .
+COPY src .
 
 # CMD npm start
